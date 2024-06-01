@@ -1,0 +1,9 @@
+{% extends "base.html" %} }
+
+{% block content %}
+    <h2><center> Order successfully created!</center></h2>
+
+    <a class="btn btn-outline-primary" href="{% url 'books' %}">Back to books</a>
+    <a class="btn btn-success" href="{% url 'my_orders' %}">My orders</a>
+
+{% endblock content %}

@@ -1,7 +1,7 @@
 # Library
 (web application for saving information about authors, readers, and books)
 
-With all information about books,authors and orders stored in one place, you no longer have to sift through hoards of spreadsheets to manually search and enter data. Just enter data once, and use it across all web platform.
+With all information about books, authors and orders stored in one place, you no longer have to sift through hoards of spreadsheets to manually search and enter data. Just enter data once, and use it across all web platform.
 
 #### Librarian can :
 
@@ -94,7 +94,8 @@ https://pypi.org/project/ratelimit/
 
 ## User identification verification mechanism - reCAPTCHA
 
-![img.png](img.png)
+![image](https://github.com/tsymbaliuk-ivan/library_promo/assets/99876130/57b245bd-74a3-4732-9480-f56fd458bc5b)
+
 
 reCAPTCHA - simple and reliable way. 
 All you need is to integrate it into your project :

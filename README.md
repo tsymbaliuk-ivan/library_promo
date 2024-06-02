@@ -85,7 +85,9 @@ authors  (admin)
 
 The restriction blocks access to the page after a certain number of requests from the same IP address within a short period of time
 (in my case rate='5/m' - 5 requests per minute)
-the decoration looks like this:
+All you need to do - is decorate the desired function in your code.
+
+the Python Decorators looks like this:
 @ratelimit(key='ip', rate='5/m', block=True)
 
 * after exceeding the limit, the user receives a 403 error

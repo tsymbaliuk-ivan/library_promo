@@ -3,6 +3,9 @@
 
 With all information about books, authors and orders stored in one place, you no longer have to sift through hoards of spreadsheets to manually search and enter data. Just enter data once, and use it across all web platform.
 
+![image](https://github.com/tsymbaliuk-ivan/library_promo/assets/99876130/3d84b6dd-4b65-49f1-a4e0-12d79451ebaf)
+
+
 #### Librarian can :
 
 - Create,update,delete book and its author. 

@@ -1,5 +1,26 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/D2DNHikt)
-# Django_View-Templates
+# Library
+(web application for saving information about authors, readers, and books)
+
+With all information about books,authors and orders stored in one place, you no longer have to sift through hoards of spreadsheets to manually search and enter data. Just enter data once, and use it across all web platform.
+
+#### Librarian can :
+
+- Create,update,delete book and its author. 
+- See all users.
+- See all orders.
+
+#### Registered users can:
+
+- See all available books and authors.
+- Search book.
+- Order books.
+- See their orders. 
+
+# Setup
+
+#### Create local env file
+
+Just run `make test_env`
 
 ## install requirement project's packages
 
@@ -18,21 +39,10 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-## Run tests
 
-There are no tests.
+# library Django web app description
 
-Everything is at your discretion and the feeling of beauty :)
-
-**_As a result of this sprint ( except fot the code in  repository) you should have a short video (2-10min) that shows functionality of the app._**
-
-## Tasks
-
-Create the appropriate views and templates for:
-
-**Do not use django forms, use only HTML forms!**
-
-(if necessary, you can modify the models)
+appropriate views and templates for:
 
 auth
 * Provide the ability to register the user as a librarian or as an ordinary user (guest)
@@ -64,3 +74,40 @@ authors  (admin)
 * show information about all authors (admin)
 * provide an opportunity to create a new author  (admin)
 * provide the ability to remove the author if he is not attached to any book (admin)
+
+
+# Simple DDoS protection
+
+### To avoid exceeding the limit of requests per page, used the ``ratelimit'' library
+
+The restriction blocks access to the page after a certain number of requests from the same IP address within a short period of time
+(in my case rate='5/m' - 5 requests per minute)
+the decoration looks like this:
+@ratelimit(key='ip', rate='5/m', block=True)
+
+* after exceeding the limit, the user receives a 403 error
+
+more details about it on the official resource:
+```commandline
+https://pypi.org/project/ratelimit/
+```
+
+## User identification verification mechanism - reCAPTCHA
+
+![img.png](img.png)
+
+reCAPTCHA - simple and reliable way. 
+All you need is to integrate it into your project :
+
+* Install the django-recaptcha package:
+* Add reCAPTCHA keys to your Django settings:
+* Modify your register view to validate reCAPTCHA:
+* Update your template to include reCAPTCHA:
+
+```commandline
+https://pypi.org/project/django-recaptcha/
+```
+This type of protection is applied during login and creation of a new user
+When the form is submitted, the server-side view validates the reCAPTCHA response.
+If the reCAPTCHA validation passes, the user is created.
+

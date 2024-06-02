@@ -9,12 +9,13 @@ from authentication.models import CustomUser
 from author.models import Author
 from book.models import Book
 from order.models import Order
-
+from django_ratelimit.decorators import ratelimit
 
 from django.shortcuts import render, redirect
 from .models import Book
 from .forms import BookForm  # Import the BookForm
 
+@ratelimit(key='ip', rate='5/m', block=True)
 def create_book(request):
     if request.method == 'POST':
         form = BookForm(request.POST)  # Bind the form with POST data
@@ -34,7 +35,7 @@ def create_book(request):
     return render(request, 'book_create.html', context)
 
 
-
+@ratelimit(key='ip', rate='5/m', block=True)
 def all_books(request):
     if request.user.is_authenticated:
         raw_books = Book.objects.all()
@@ -55,6 +56,7 @@ def all_books(request):
     return redirect("login")
 
 
+@ratelimit(key='ip', rate='5/m', block=True)
 def book_info(request, id):
     if request.user.is_authenticated:
         book = Book.objects.get(id=id)
@@ -70,6 +72,7 @@ def book_info(request, id):
     return redirect("login")
 
 
+@ratelimit(key='ip', rate='5/m', block=True)
 def books_ordered_by_user_id(request, id):
     if request.user.is_authenticated and request.user.role == 1:
         if user := CustomUser.get_by_id(id):
@@ -80,6 +83,8 @@ def books_ordered_by_user_id(request, id):
             messages.error(request, 'ERROR! No user found')
     return redirect("books")
 
+
+@ratelimit(key='ip', rate='5/m', block=True)
 def book_delete(request, book_id):
     # Get the book object to delete
     book = get_object_or_404(Book, pk=book_id)
@@ -96,5 +101,6 @@ def book_delete(request, book_id):
     }
     return render(request, 'book_delete.html', context)
 
+@ratelimit(key='ip', rate='5/m', block=True)
 def filter_books():
     return None

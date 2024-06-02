@@ -4,8 +4,9 @@ from book.models import Book
 from django.shortcuts import render, redirect
 from .models import Order
 from .forms import OrderForm
+from django_ratelimit.decorators import ratelimit
 
-
+@ratelimit(key='ip', rate='5/m', block=True)
 def order_book(request, id):
     if request.user.is_authenticated:
         user = CustomUser.objects.get(id=request.user.id)
@@ -30,6 +31,8 @@ def order_book(request, id):
         return render(request, 'order_book.html', {'form': form})
 
     return redirect("login")
+
+@ratelimit(key='ip', rate='5/m', block=True)
 def close_order(request, id):
     if request.user.is_authenticated and request.user.role == 1:
         order = Order.objects.get(id=id)
@@ -38,7 +41,7 @@ def close_order(request, id):
         return redirect("all_orders")
     return redirect("home")
 
-
+@ratelimit(key='ip', rate='5/m', block=True)
 def all_orders(request):
     if request.user.is_authenticated and request.user.role == 1:
         orders = Order.objects.all()
@@ -48,6 +51,7 @@ def all_orders(request):
         return render(request, 'all_orders.html', context=context)
     return redirect("home")
 
+@ratelimit(key='ip', rate='5/m', block=True)
 def my_orders(request):
     if request.user.is_authenticated:
         print(request.user)

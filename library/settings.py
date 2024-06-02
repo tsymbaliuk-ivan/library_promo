@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'captcha',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'author',
     'book',
     'order',
+    'django_recaptcha',
 ]
 
 AUTH_USER_MODEL = 'authentication.CustomUser'
@@ -171,3 +173,9 @@ try:
     from .local_settings import *
 except ImportError:
     pass
+
+
+
+
+RECAPTCHA_PUBLIC_KEY = '6Ldvh-4pAAAAACi1HTo3Rk19SCI5qepUteobPCrE'
+RECAPTCHA_PRIVATE_KEY = '6Ldvh-4pAAAAAOKwWRWNBQMO_7LdSuRFM8Ig1BoX'

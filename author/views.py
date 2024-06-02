@@ -6,8 +6,10 @@ from authentication.models import CustomUser
 from author.models import Author
 from abc import ABC
 from .forms import AuthorForm  # Import the AuthorForm
+from django_ratelimit.decorators import ratelimit
 
 
+@ratelimit(key='ip', rate='5/m', block=True)
 def author_id(request, id):
     if not request.user.is_authenticated:
         messages.info(request, "Log in first!")
@@ -24,6 +26,8 @@ class AbstractAuthorView(ABC):
     context_object_name = 'authors'
     paginate_by = 10
 
+
+@ratelimit(key='ip', rate='5/m', block=True)
 # class AuthorViewAll(AbstractAuthorView, ListView):
 def get_all(request):
     if not request.user.is_authenticated:
@@ -36,7 +40,7 @@ def get_all(request):
 
 
 
-
+@ratelimit(key='ip', rate='5/m', block=True)
 def create_author(request):
     if request.method == "POST":
         form = AuthorForm(request.POST)
@@ -51,6 +55,8 @@ def create_author(request):
 
     return render(request, 'author_form.html', {'form': form})
 
+
+@ratelimit(key='ip', rate='5/m', block=True)
 def delete_author(request, id):
     if not request.user.is_authenticated:
         messages.info(request, "Log in first!")

@@ -89,16 +89,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 
-#
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'sprint_15',
-#         'USER': 'postgres',
-#         'PASSWORD': '1999Dfymxbr29',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
+
 }
 
 # Password validation
@@ -173,9 +164,6 @@ try:
     from .local_settings import *
 except ImportError:
     pass
-
-
-
 
 RECAPTCHA_PUBLIC_KEY = '6Ldvh-4pAAAAACi1HTo3Rk19SCI5qepUteobPCrE'
 RECAPTCHA_PRIVATE_KEY = '6Ldvh-4pAAAAAOKwWRWNBQMO_7LdSuRFM8Ig1BoX'

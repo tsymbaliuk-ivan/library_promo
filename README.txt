@@ -1,5 +1,15 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/D2DNHikt)
-# Django_View-Templates
+Library
+With all information about books,authors and orders stored in one place, you no longer have to sift through hoards of spreadsheets to manually search and enter data. Just enter data once, and use it across all web platform.
+
+Librarian can :
+Create,update,delete book and its author.
+See all users.
+See all orders.
+Registered users can:
+See all available books and authors.
+Search book.
+Order books.
+See their orders.
 
 ## install requirement project's packages
 
@@ -18,21 +28,8 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-## Run tests
 
-There are no tests.
-
-Everything is at your discretion and the feeling of beauty :)
-
-**_As a result of this sprint ( except fot the code in  repository) you should have a short video (2-10min) that shows functionality of the app._**
-
-## Tasks
-
-Create the appropriate views and templates for:
-
-**Do not use django forms, use only HTML forms!**
-
-(if necessary, you can modify the models)
+appropriate views and templates for:
 
 auth
 * Provide the ability to register the user as a librarian or as an ordinary user (guest)

@@ -92,6 +92,10 @@ the Python Decorators looks like this:
 
 * after exceeding the limit, the user receives a 403 error
 
+in our case, pressing the order button 5 times causes temporary blocking
+![image](https://github.com/tsymbaliuk-ivan/library_promo/assets/99876130/666a3017-cc7d-4e5a-8404-e28379b349fc)
+
+
 more details about it on the official resource:
 ```commandline
 https://pypi.org/project/ratelimit/

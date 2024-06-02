@@ -110,5 +110,5 @@ https://pypi.org/project/django-recaptcha/
 ```
 This type of protection is applied during login and creation of a new user
 When the form is submitted, the server-side view validates the reCAPTCHA response.
-If the reCAPTCHA validation passes, the user is created.
+If the reCAPTCHA validation passes, the user can login.
 
